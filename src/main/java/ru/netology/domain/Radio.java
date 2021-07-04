@@ -27,10 +27,6 @@ public class Radio {
         return minRadioWave;
     }
 
-    // public int getMaxRadioWave() {
-    // return maxRadioWave;
-    // }
-
     public int getMaxVolume() {
         return maxVolume;
     }
