@@ -5,6 +5,7 @@ public class Radio {
     private int radioWaveNumber = 10;
     private int currentRadioWave;
     private int minRadioWave = 0;
+    private int maxRadioWave = radioWaveNumber - 1;
     private int maxVolume = 100;
     private int minVolume = 0;
     private int currentVolume;
@@ -13,19 +14,15 @@ public class Radio {
         return radioWaveNumber;
     }
 
-    public int getCurrentRadioWave() {
+    public int getCurrentRadioWave() { return currentRadioWave; }
 
-        return currentRadioWave;
-    }
-
-    public int getCurrentVolume() {
-
-        return currentVolume;
-    }
+    public int getCurrentVolume() { return currentVolume; }
 
     public int getMinRadioWave() {
         return minRadioWave;
     }
+
+    public int getMaxRadioWave() { return maxRadioWave; }
 
     public int getMaxVolume() {
         return maxVolume;
@@ -39,28 +36,36 @@ public class Radio {
 
     }
 
-    public Radio(int currentRadioWave, int minRadioWave, int radioWaveNumber, int currentVolume, int maxVolume, int minVolume) {
-        this.radioWaveNumber = radioWaveNumber;
+    public Radio(int currentRadioWave, int minRadioWave, int maxRadioWave, int currentVolume, int maxVolume, int minVolume) {
         this.currentRadioWave = currentRadioWave;
         this.minRadioWave = minRadioWave;
         this.currentVolume = currentVolume;
         this.maxVolume = maxVolume;
         this.minVolume = minVolume;
+        this.maxRadioWave = maxRadioWave;
     }
+
+    public Radio(int radioWaveNumber, int currentRadioWave, int minRadioWave) { //int maxRadioWave
+        this.currentRadioWave = currentRadioWave;
+        this.minRadioWave = minRadioWave;
+        //this.maxRadioWave = maxRadioWave;
+        this.radioWaveNumber = radioWaveNumber;
+    }
+
 
     public long setCurrentRadioWave() {
         if (currentRadioWave < minRadioWave) {
             currentRadioWave = minRadioWave;
         } else {
-            if (currentRadioWave > radioWaveNumber) {
-                currentRadioWave = radioWaveNumber;
+            if (currentRadioWave > maxRadioWave) {
+                currentRadioWave = maxRadioWave;
             }
         }
         return currentRadioWave;
     }
 
     public int setNextRadioWaveAndBackToMin() {
-        if (currentRadioWave < radioWaveNumber) {
+        if (currentRadioWave < maxRadioWave) {
             currentRadioWave = currentRadioWave + 1;
         } else {
             currentRadioWave = minRadioWave;
@@ -74,7 +79,7 @@ public class Radio {
         if (currentRadioWave > minRadioWave) {
             currentRadioWave = currentRadioWave - 1;
         } else {
-            currentRadioWave = radioWaveNumber;
+            currentRadioWave = maxRadioWave;
         }
         return currentRadioWave;
     }
