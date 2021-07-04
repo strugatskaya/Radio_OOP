@@ -5,7 +5,6 @@ public class Radio {
     private int radioWaveNumber = 10;
     private int currentRadioWave;
     private int minRadioWave = 0;
-    // private int maxRadioWave = radioWaveNumber;
     private int maxVolume = 100;
     private int minVolume = 0;
     private int currentVolume;

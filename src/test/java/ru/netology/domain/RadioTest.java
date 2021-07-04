@@ -5,29 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RadioTest {
-
-    // тесты для установки числа радиостанций
-//    @Test
-//
-//    public void ShouldSetRadioWaveNumber10() {
-//        Radio radio = new Radio(10);
-//        assertEquals(10, radio.getRadioWaveNumber());
-//    }
-
-//    @Test
-//
-//    public void ShouldSetRadioWaveNumber1() {
-//        Radio radio = new Radio(1);
-//        assertEquals(1, radio.getRadioWaveNumber());
-
-//    }
-//    @Test
-//    // переключение на следующую станцию дальше количества станций
-//public void ShouldNextAndBackToFirstStation() {
-//        Radio radio = new Radio(10);
-// тесты для установки радиостанции
-//    }
-
+r
     @Test
 
     public void ShouldSetRadioWavePositive10() {
