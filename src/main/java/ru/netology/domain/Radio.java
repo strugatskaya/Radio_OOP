@@ -2,12 +2,12 @@ package ru.netology.domain;
 
 public class Radio {
 
-    private int radioWaveNumber;
+    private int radioWaveNumber = 10;
     private int currentRadioWave;
-    private int minRadioWave;
-    private int maxRadioWave;
-    private int maxVolume;
-    private int minVolume;
+    private int minRadioWave = 0;
+    // private int maxRadioWave = radioWaveNumber;
+    private int maxVolume = 100;
+    private int minVolume = 0;
     private int currentVolume;
 
     public int getRadioWaveNumber() {
@@ -28,9 +28,9 @@ public class Radio {
         return minRadioWave;
     }
 
-    public int getMaxRadioWave() {
-        return maxRadioWave;
-    }
+    // public int getMaxRadioWave() {
+    // return maxRadioWave;
+    // }
 
     public int getMaxVolume() {
         return maxVolume;
@@ -44,30 +44,28 @@ public class Radio {
 
     }
 
-    public Radio(int radioWaveNumber) {
-        this.radioWaveNumber = radioWaveNumber;
-    }
-
-    public Radio(int radioWaveNumber, int currentRadioWave, int minRadioWave, int maxRadioWave) {
+    public Radio(int currentRadioWave, int minRadioWave, int radioWaveNumber, int currentVolume, int maxVolume, int minVolume) {
         this.radioWaveNumber = radioWaveNumber;
         this.currentRadioWave = currentRadioWave;
         this.minRadioWave = minRadioWave;
-        this.maxRadioWave = maxRadioWave;
+        this.currentVolume = currentVolume;
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
     }
 
-    public int setCurrentRadioWave() {
+    public long setCurrentRadioWave() {
         if (currentRadioWave < minRadioWave) {
             currentRadioWave = minRadioWave;
         } else {
-            if (currentRadioWave > maxRadioWave) {
-                currentRadioWave = maxRadioWave;
+            if (currentRadioWave > radioWaveNumber) {
+                currentRadioWave = radioWaveNumber;
             }
         }
         return currentRadioWave;
     }
 
     public int setNextRadioWaveAndBackToMin() {
-        if (currentRadioWave < maxRadioWave) {
+        if (currentRadioWave < radioWaveNumber) {
             currentRadioWave = currentRadioWave + 1;
         } else {
             currentRadioWave = minRadioWave;
@@ -81,15 +79,9 @@ public class Radio {
         if (currentRadioWave > minRadioWave) {
             currentRadioWave = currentRadioWave - 1;
         } else {
-            currentRadioWave = maxRadioWave;
+            currentRadioWave = radioWaveNumber;
         }
         return currentRadioWave;
-    }
-
-    public Radio(int currentVolume, int minVolume, int maxVolume) {
-        this.currentVolume = currentVolume;
-        this.minVolume = minVolume;
-        this.maxVolume = maxVolume;
     }
 
     public int setCurrentVolume() {
