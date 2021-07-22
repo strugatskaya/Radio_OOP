@@ -9,7 +9,7 @@ public class RadioTest {
     @Test
 
     public void ShouldSetRadioWavePositive9() {
-        Radio radio = new Radio(9, 0, 9, 100, 100, 0);
+        Radio radio = new Radio(9, 1, 20, 100, 100, 0);
         assertEquals(9, radio.getCurrentRadioWave());
     }
 
@@ -57,9 +57,9 @@ public class RadioTest {
     }
 
     @Test
-    public void ShouldSetNextRadioWaveNegative9() {
-        Radio radio = new Radio(9, 0, 9, 100, 100, 0);
-        assertEquals(0, radio.setNextRadioWaveAndBackToMin());
+    public void ShouldSetNextRadioWaveNegative199() {
+        Radio radio = new Radio(199, 6, 200, 100, 100, 0);
+        assertEquals(200, radio.setNextRadioWaveAndBackToMin());
     }
 
     @Test
@@ -159,16 +159,25 @@ public class RadioTest {
     // тесты для 100% покрытия по бранчам
 
     @Test
-    public void getMaxRadioWave() {
-        Radio radio = new Radio(10, 9, 0);
-        assertEquals(9, radio.getMaxRadioWave());
+    public void getMaxRadioWave36() {
+        Radio radio = new Radio(36, 9, 34);
+        assertEquals(35, radio.getMaxRadioWave());
     }
     @Test
+    public void getMaxRadioWave2() {
+        Radio radio = new Radio(2, 9, 0);
+        assertEquals(1, radio.getMaxRadioWave());
+    }
 
+    @Test
     public void RadioConstructor() {
         Radio radio = new Radio();
     }
 
+    @Test
+    public void RadioMissedConstructor() {
+        Radio radio = new Radio(1, 8,10);
+    }
     @Test
     public void GetMinRadioWave() {
         Radio radio = new Radio();

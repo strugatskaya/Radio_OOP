@@ -2,10 +2,10 @@ package ru.netology.domain;
 
 public class Radio {
 
-    private int radioWaveNumber = 10;
+    private int radioWaveNumber;
     private int currentRadioWave;
     private int minRadioWave = 0;
-    private int maxRadioWave = radioWaveNumber - 1;
+    private int maxRadioWave;
     private int maxVolume = 100;
     private int minVolume = 0;
     private int currentVolume;
@@ -22,7 +22,11 @@ public class Radio {
         return minRadioWave;
     }
 
-    public int getMaxRadioWave() { return maxRadioWave; }
+    public int getMaxRadioWave()
+    {
+        maxRadioWave = radioWaveNumber - 1;
+        return maxRadioWave;
+    }
 
     public int getMaxVolume() {
         return maxVolume;
